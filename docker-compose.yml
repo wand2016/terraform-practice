@@ -19,3 +19,14 @@ services:
       AWS_DEFAULT_REGION: ${AWS_DEFAULT_REGION}
     volumes:
       - "${TERRAFORM_WORKDIR}:/work"
+
+  tflint:
+    image: wata727/tflint
+    working_dir: /data
+    environment:
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      AWS_DEFAULT_REGION: ${AWS_DEFAULT_REGION}
+    volumes:
+      - "${TERRAFORM_WORKDIR}:/data"
+    command: "--version"

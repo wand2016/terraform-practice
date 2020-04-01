@@ -29,3 +29,13 @@ services:
       AWS_DEFAULT_REGION: ${AWS_DEFAULT_REGION}
     volumes:
       - "${TERRAFORM_WORKDIR}:/data"
+
+  terraformer:
+    image: sacloud/terraformer
+    working_dir: /work
+    environment:
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      AWS_DEFAULT_REGION: ${AWS_DEFAULT_REGION}
+    volumes:
+      - "${TERRAFORM_WORKDIR}:/work"
